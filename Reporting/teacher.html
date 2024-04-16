@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teacher Module</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('parents.png');
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    .container {
+        width: 60%; /* Set the width of the container */
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: rgba(248, 249, 245, 0.8); /* Light green background color */
+        text-align: center;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    input[type="text"],
+    textarea {
+        padding: 5px;
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 10px; /* Add some spacing between inputs and buttons */
+    }
+    .star-rating {
+        unicode-bidi: bidi-override;
+        direction: rtl;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .star-rating input {
+        display: none;
+    }
+    .star-rating label {
+        font-size: 30px;
+        padding: 5px;
+        color: #ccc;
+        cursor: pointer;
+    }
+    .star-rating label:hover,
+    .star-rating label:hover ~ label,
+    .star-rating input:checked ~ label {
+        color: #ffcc00;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Teacher Module</h2>
+    <form id="studentForm">
+        <label for="studentName">Student Roll No:</label>
+        <input type="text" id="studentName" placeholder="Enter student roll no">
+        <div class="star-rating">
+            <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+            <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+            <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+            <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+            <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+        </div>
+        <label for="comments">Comments:</label>
+        <textarea id="comments" placeholder="Enter comments"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    <button onclick="goBack()">Back</button>
+</div>
+
+<script>
+    function goBack() {
+        window.location.href = 'report.html';
+    }
+
+    document.getElementById('studentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var studentName = document.getElementById('studentName').value.trim();
+        var rating = document.querySelector('.star-rating input:checked');
+        var comments = document.getElementById('comments').value.trim();
+
+        if (studentName === '' || !rating || comments === '') {
+            alert('Please fill in all the required fields.');
+            return;
+        }
+
+        alert(`Progress for ${studentName} submitted: ${rating.value} Stars\nComments: ${comments}`);
+        document.getElementById('studentForm').reset();
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parent Module</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('teacher.png');
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    .container {
+        width: 60%; /* Set the width of the container */
+        margin-top: 50px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: rgba(249, 249, 249, 0.9);
+        text-align: center;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    input[type="text"] {
+        padding: 5px;
+        font-size: 16px;
+        width: 100%;
+    }
+    textarea {
+        padding: 5px;
+        font-size: 16px;
+        width: 100%;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Parent Module</h2>
+    <form id="parentForm">
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName" placeholder="Enter student name" required>
+        <button type="submit">View Report</button>
+    </form>
+    <div id="report" style="display: none;">
+        <h3>Student Report</h3>
+        <p id="studentReport"></p>
+    </div>
+    <button onclick="goBack()" style="margin-top: 20px;">Back</button>
+</div>
+
+<script>
+    function goBack() {
+        window.location.href = 'report.html';
+    }
+
+    document.getElementById('parentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var studentName = document.getElementById('studentName').value;
+        // Here you would fetch the student's report from the server
+        // and display it in the report section
+        // For demonstration purposes, we'll just show a sample report
+        var sampleReport = `Report for ${studentName}: Progress 4 Stars`;
+        document.getElementById('studentReport').textContent = sampleReport;
+        document.getElementById('report').style.display = 'block';
+    });
+</script>
+
+</body>
+</html>

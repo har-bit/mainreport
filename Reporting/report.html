@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Progress Report</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('reporting.png');
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    .container {
+        width: 60%; /* Set the width of the container */
+        max-width: 400px; /* Set the maximum width of the container */
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.8); /* Add transparency to the container */
+        text-align: center;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        display: block; /* Display buttons as block elements to make them vertical */
+        margin: 10px auto; /* Center the buttons horizontally */
+        text-decoration: none; /* Remove underline from button text */
+    }
+    button#teacherBtn {
+        background-color: #4CAF50;
+        color: white;
+    }
+    button#parentsBtn {
+        background-color: #008CBA;
+        color: white;
+    }
+    
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Student Progress Report</h2>
+    <a href="teacher.html" ><button id="teacherBtn">Teacher Module</button></a>
+    <a href="parents.html" ><button id="parentsBtn">Parent Module</button></a>
+    
+</div>
+
+</body>
+</html>
